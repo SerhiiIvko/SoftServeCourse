@@ -4,23 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleReader {
-    private Scanner scanner;
+class ConsoleReader {
 
-    public List<Triangle> getTriangleFromConsole() {
+    List<Triangle> getTriangleFromConsole() {
         List<Triangle> triangles = new ArrayList<>();
         String input;
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         do {
             String name;
             double sideA;
             double sideB;
             double sideC;
             ConsoleMessages.printMessage(ConsoleMessages.INPUT_MESSAGE);
-            name = getStringFromConsole(scanner, ConsoleMessages.NAME_MESSAGE);
-            sideA = getNumberFromConsole(scanner, ConsoleMessages.SIDE_A_MESSAGE);
-            sideB = getNumberFromConsole(scanner, ConsoleMessages.SIDE_B_MESSAGE);
-            sideC = getNumberFromConsole(scanner, ConsoleMessages.SIDE_C_MESSAGE);
+            String[] params = parseParamsFromUserInput(scanner);
+            if (params.length != 4) {
+                throw new IllegalArgumentException(ConsoleMessages.INCORRECT_PARAMETERS);
+            } else {
+                name = params[0];
+                sideA = Double.parseDouble(params[1]);
+                sideB = Double.parseDouble(params[2]);
+                sideC = Double.parseDouble(params[3]);
+            }
             if (!TriangleValidator.isShapeTriangle(sideA, sideB, sideC)) {
                 throw new IllegalArgumentException(ConsoleMessages.INCORRECT_PARAMETERS);
             } else {
@@ -33,21 +37,9 @@ public class ConsoleReader {
         return triangles;
     }
 
-    private static double getNumberFromConsole(Scanner scanner, String inviteText) {
-        double number = -1;
-        ConsoleMessages.printMessage(inviteText);
-        while (number < 0) {
-            if (!scanner.hasNextDouble()) {
-                ConsoleMessages.printMessage(ConsoleMessages.WARNING_WHEN_INPUT_IS_EMPTY);
-                scanner.next();
-            } else {
-                number = scanner.nextDouble();
-                if (number <= 0) {
-                    ConsoleMessages.printMessage(ConsoleMessages.WARNING_WHEN_NEGATIVE_INPUT);
-                }
-            }
-        }
-        return number;
+    private String[] parseParamsFromUserInput(Scanner scanner) {
+        String userInput = scanner.nextLine();
+        return userInput.replace(" ", "").trim().split(",");
     }
 
     private static String getStringFromConsole(Scanner scanner, String inviteText) {
@@ -55,10 +47,10 @@ public class ConsoleReader {
         ConsoleMessages.printMessage(inviteText);
         while (string.equalsIgnoreCase("")) {
             if (!scanner.hasNext()) {
-                ConsoleMessages.printMessage(ConsoleMessages.NAME_MESSAGE);
-                scanner.next();
+                ConsoleMessages.printMessage(ConsoleMessages.WARN_MESSAGE);
+                scanner.nextLine();
             } else {
-                string = scanner.next();
+                string = scanner.nextLine();
             }
         }
         return string.toLowerCase().trim();

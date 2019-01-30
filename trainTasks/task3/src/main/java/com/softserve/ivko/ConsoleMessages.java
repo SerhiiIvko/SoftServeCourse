@@ -1,14 +1,10 @@
 package com.softserve.ivko;
 
 class ConsoleMessages {
-    static final String INPUT_MESSAGE = "Enter parameters of triangle:";
-    static final String NAME_MESSAGE = "Enter triangle name:";
-    static final String SIDE_A_MESSAGE = "Enter side A:";
-    static final String SIDE_B_MESSAGE = "Enter side B:";
-    static final String SIDE_C_MESSAGE = "Enter side C:";
-    static final String WARNING_WHEN_INPUT_IS_EMPTY = "Input only float point positive numbers!";
-    static final String WARNING_WHEN_NEGATIVE_INPUT = "Negative numbers are not allowed!";
-    static final String INCORRECT_PARAMETERS = "Incorrect parameters, the shape isn't triangle!";
+    static final String INPUT_MESSAGE = "Enter parameters of triangle in format (delimiter - comma):\n" +
+            "<name>, <side length>, <side length>, <side length>:";
+    static final String WARN_MESSAGE = "Enter Yes or No";
+    static final String INCORRECT_PARAMETERS = "Incorrect parameters! Try input again!";
     static final String CONTINUE_MESSAGE = "Enter else? Y/N";
     static final String USER_ANSWER_YES_1 = "Y";
     static final String USER_ANSWER_YES_2 = "Yes";

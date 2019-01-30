@@ -2,12 +2,11 @@ package com.softserve.ivko;
 
 import java.util.Objects;
 
-public class Triangle implements Comparable{
+public class Triangle implements Comparable {
     private String name;
     private double sideA;
     private double sideB;
     private double sideC;
-    private double area;
 
     Triangle(String name, double sideA, double sideB, double sideC) {
         this.name = name;

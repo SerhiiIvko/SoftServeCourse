@@ -2,6 +2,6 @@ package com.softserve.ivko;
 
 import java.util.List;
 
-public interface IShapeManager {
+public interface IShapeSorter {
     List<Triangle> sortTriangles(List<Triangle> triangleList);
 }

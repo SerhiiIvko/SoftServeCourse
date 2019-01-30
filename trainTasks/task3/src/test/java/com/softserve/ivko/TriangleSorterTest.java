@@ -45,9 +45,9 @@ public class TriangleSorterTest {
 
         //THEN:
         Assert.assertEquals(expectedListSize, actualListSize);
-        Assert.assertEquals(sortedList.get(0).getName(), nonSortedList.get(2).getName());
+        Assert.assertEquals(sortedList.get(0).getName(), nonSortedList.get(1).getName());
         Assert.assertEquals(sortedList.get(1).getName(), nonSortedList.get(0).getName());
-        Assert.assertEquals(sortedList.get(2).getName(), nonSortedList.get(1).getName());
+        Assert.assertEquals(sortedList.get(2).getName(), nonSortedList.get(2).getName());
     }
 
     @Test(expected = IndexOutOfBoundsException.class)

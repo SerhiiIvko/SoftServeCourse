@@ -24,9 +24,10 @@ public class MainApp {
     public static void main(String[] args) {
         ResultPrinter printer = new ResultPrinter();
         try {
-            printer.getResultOfSortTriangles();
+            printer.printSortedTriangleList();
         } catch (IllegalArgumentException e) {
             ConsoleMessages.printMessage(e.getMessage());
+            printer.printSortedTriangleList();
         }
     }
 }

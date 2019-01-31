@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class ShapeMediator {
+class ShapeCollector {
 
-    String collectSortedTrianglesToString() throws IllegalArgumentException {
-        ShapeMediator mediator = new ShapeMediator();
+    static String collectSortedTrianglesToString() throws IllegalArgumentException {
+        ShapeCollector mediator = new ShapeCollector();
         List<Triangle> triangles = mediator.getSortedList();
         ConsoleMessages.printMessage(ConsoleMessages.OUTPUT_LIST_PATTERN_MESSAGE);
         return IntStream.range(0, triangles.size())

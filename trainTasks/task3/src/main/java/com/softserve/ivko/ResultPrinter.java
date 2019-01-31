@@ -3,6 +3,6 @@ package com.softserve.ivko;
 class ResultPrinter {
 
     void printSortedTriangleList() {
-        System.out.println(new ShapeMediator().collectSortedTrianglesToString());
+        System.out.println(ShapeCollector.collectSortedTrianglesToString());
     }
 }

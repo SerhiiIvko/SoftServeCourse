@@ -30,27 +30,34 @@ class ConsoleReader {
             } else {
                 Triangle triangle = new Triangle(name, sideA, sideB, sideC);
                 triangles.add(triangle);
-                input = getStringFromConsole(scanner, ConsoleMessages.CONTINUE_MESSAGE);
+                input = getStringFromConsole(scanner);
             }
         } while (!getBreakLoopCondition(input));
         scanner.close();
         return triangles;
     }
 
-    private String[] parseParamsFromUserInput(Scanner scanner) {
+    private static String[] parseParamsFromUserInput(Scanner scanner) {
         String userInput = scanner.nextLine();
         return userInput.replace(" ", "").trim().split(",");
     }
 
-    private static String getStringFromConsole(Scanner scanner, String inviteText) {
+    private static String getStringFromConsole(Scanner scanner) {
         String string = "";
-        ConsoleMessages.printMessage(inviteText);
+        ConsoleMessages.printMessage(ConsoleMessages.CONTINUE_MESSAGE);
         while (string.equalsIgnoreCase("")) {
             if (!scanner.hasNext()) {
                 ConsoleMessages.printMessage(ConsoleMessages.WARN_MESSAGE);
                 scanner.nextLine();
             } else {
                 string = scanner.nextLine();
+            }
+            if (!string.equalsIgnoreCase(ConsoleMessages.USER_ANSWER_NO_1)
+                    && !string.equalsIgnoreCase(ConsoleMessages.USER_ANSWER_NO_2)
+                    && !string.equalsIgnoreCase(ConsoleMessages.USER_ANSWER_YES_1)
+                    && !string.equalsIgnoreCase(ConsoleMessages.USER_ANSWER_YES_2)) {
+                string = "";
+                ConsoleMessages.printMessage(ConsoleMessages.WARN_MESSAGE);
             }
         }
         return string.toLowerCase().trim();

@@ -35,7 +35,7 @@ class NumberToWordConverter {
             prefix = DigitsNameContainer.NEGATIVE;
         }
         StringBuilder current = new StringBuilder();
-        long place = 0;//long
+        long place = 0;
         do {
             long n = number % 1000;
             if (n != 0) {

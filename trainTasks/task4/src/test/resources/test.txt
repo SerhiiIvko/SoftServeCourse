@@ -1,0 +1,22 @@
+A Poem in Java
+It’s really a waste of time
+Something to do because I can
+I can easily print a list of rhymes
+fat
+sat
+bat
+hat
+cat
+Then do it all again
+cat
+hat
+bat
+sat
+fat
+I can make words from other words
+to Cry is to have tears
+From afar looks so odd and uneven
+Yet once compiled is all become clear
+None of this really makes much sense
+Yet, it was fun to make
+A Poem in Java

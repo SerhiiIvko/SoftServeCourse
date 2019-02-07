@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TriangleSorter implements IShapeSorter {
+public class ShapeSorterImpl implements IShapeSorter {
 
     public List<Triangle> sortTriangles(List<Triangle> triangleList) {
         if (triangleList != null) {

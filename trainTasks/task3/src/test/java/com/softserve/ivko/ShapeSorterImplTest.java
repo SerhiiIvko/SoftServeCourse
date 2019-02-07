@@ -6,13 +6,13 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TriangleSorterTest {
+public class ShapeSorterImplTest {
 
     @Test
     public void sortTrianglesWhenInputListNotNull() {
 
         //GIVEN:
-        TriangleSorter sorter = new TriangleSorter();
+        ShapeSorterImpl sorter = new ShapeSorterImpl();
         List<Triangle> nonSortedList = new ArrayList<>();
         String expectedName1 = "tr1";
         double expectedSideA1 = 7;
@@ -54,11 +54,27 @@ public class TriangleSorterTest {
     public void sortTrianglesWhenInputListIsEmpty() {
 
         //GIVEN:
-        TriangleSorter sorter = new TriangleSorter();
+        ShapeSorterImpl sorter = new ShapeSorterImpl();
         List<Triangle> nonSortedList = new ArrayList<>();
         Triangle triangle;
 
         //WHEN:
+        List<Triangle> sortedList = sorter.sortTriangles(nonSortedList);
+
+        //THEN:
+        triangle = sortedList.get(0);
+    }
+
+    @Test
+    public void sortTrianglesWhenInputListIs() {
+
+        //GIVEN:
+        ShapeSorterImpl sorter = new ShapeSorterImpl();
+        List<Triangle> nonSortedList = new ArrayList<>();
+        Triangle triangle = new Triangle("",-2,0,0);
+
+        //WHEN:
+        nonSortedList.add(triangle);
         List<Triangle> sortedList = sorter.sortTriangles(nonSortedList);
 
         //THEN:

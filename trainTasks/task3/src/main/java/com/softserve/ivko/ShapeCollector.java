@@ -16,7 +16,7 @@ class ShapeCollector {
     }
 
     private List<Triangle> getSortedList() throws IllegalArgumentException {
-        TriangleSorter sorter = new TriangleSorter();
+        ShapeSorterImpl sorter = new ShapeSorterImpl();
         List<Triangle> unsortedList = getTrianglesFromReader();
         return sorter.sortTriangles(unsortedList);
     }

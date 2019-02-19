@@ -1,9 +1,22 @@
 package com.softserve.ivko;
 
-public class ConvertComparator {
+import java.util.List;
 
-    public boolean isConvert(Convert convert1, Convert convert2){
+class ConvertComparator {
 
+    boolean isConvertCanBeInner(ConsoleReader reader) throws IllegalArgumentException {
+        List<Convert> converts = reader.getConvertsFromConsole();
+//        if (converts.get(0).getHeight(), converts.get(1).getHeight()){
+//            throw new IllegalArgumentException();
+//        } else {
+//            return true;
+//        }
         return true;
     }
+
+//    boolean isConvertsCompared(){
+//        if (){
+//
+//        }
+//    }
 }

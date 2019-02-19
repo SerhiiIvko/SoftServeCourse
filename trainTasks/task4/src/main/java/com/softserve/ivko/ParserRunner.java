@@ -28,7 +28,7 @@ class ParserRunner {
                         + search
                         + ConsoleMessages.REPLACED_MESSAGE
                         + replace
-                        + ConsoleMessages.BRACK_MESSAGE1
+                        + ConsoleMessages.BRAKE_MESSAGE1
                         + replacedStringsCount
                         + ConsoleMessages.COUNT_MESSAGE2);
             }

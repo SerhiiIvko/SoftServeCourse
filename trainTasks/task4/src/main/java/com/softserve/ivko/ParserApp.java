@@ -1,7 +1,6 @@
 package com.softserve.ivko;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * Файловый парсер

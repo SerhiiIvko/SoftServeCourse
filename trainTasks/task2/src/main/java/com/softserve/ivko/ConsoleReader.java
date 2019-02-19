@@ -4,42 +4,40 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ConsoleReader {
+class ConsoleReader {
+    final ConvertComparator comparator = new ConvertComparator();
 
-    List<Convert> getConvertFromConsole() {
-        List<Convert> triangles = new ArrayList<>();
+    List<Convert> getConvertsFromConsole() {
+        List<Convert> converts = new ArrayList<>();
         String input;
         Scanner scanner = new Scanner(System.in);
         do {
-            String name;
-            double sideA;
-            double sideB;
-            double sideC;
+            double convert1width;
+            double convert2width;
+            double convert1height;
+            double convert2height;
             ConsoleMessages.printMessage(ConsoleMessages.INPUT_MESSAGE);
-            String[] params = parseParamsFromUserInput(scanner);
-            if (params.length != 4) {
+            ConsoleMessages.printMessage(ConsoleMessages.INPUT_WIDTH_CONVERT1);
+            convert1width = Double.parseDouble(scanner.nextLine());
+            ConsoleMessages.printMessage(ConsoleMessages.INPUT_HEIGHT_CONVERT1);
+            convert1height = Double.parseDouble(scanner.nextLine());
+            ConsoleMessages.printMessage(ConsoleMessages.INPUT_WIDTH_CONVERT2);
+            convert2width = Double.parseDouble(scanner.nextLine());
+            ConsoleMessages.printMessage(ConsoleMessages.INPUT_HEIGHT_CONVERT2);
+            convert2height = Double.parseDouble(scanner.nextLine());
+            if (!ConvertValidator.validate(convert1width, convert1height)
+                    || !ConvertValidator.validate(convert2width, convert2height)) {
                 throw new IllegalArgumentException(ConsoleMessages.INCORRECT_PARAMETERS);
             } else {
-                name = params[0];
-                sideA = Double.parseDouble(params[1]);
-                sideB = Double.parseDouble(params[2]);
-                sideC = Double.parseDouble(params[3]);
-            }
-            if (!TriangleValidator.isShapeTriangle(sideA, sideB, sideC)) {
-                throw new IllegalArgumentException(ConsoleMessages.INCORRECT_PARAMETERS);
-            } else {
-                Triangle triangle = new Triangle(name, sideA, sideB, sideC);
-                triangles.add(triangle);
+                Convert convert1 = new Convert(convert1width, convert1height);
+                Convert convert2 = new Convert(convert2width, convert2height);
+                converts.add(convert1);
+                converts.add(convert2);
                 input = getStringFromConsole(scanner);
             }
         } while (!getBreakLoopCondition(input));
         scanner.close();
-        return triangles;
-    }
-
-    private static String[] parseParamsFromUserInput(Scanner scanner) {
-        String userInput = scanner.nextLine();
-        return userInput.replace(" ", "").trim().split(",");
+        return converts;
     }
 
     private static String getStringFromConsole(Scanner scanner) {
